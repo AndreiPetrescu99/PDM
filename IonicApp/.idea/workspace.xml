@@ -20,8 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9fa0ce92-1941-4e0f-b636-576aceab8645" name="Default Changelist" comment="First Commit">
-      <change beforePath="$PROJECT_DIR$/myApp" beforeDir="false" afterPath="$PROJECT_DIR$/myApp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myApp/.gitignore" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AndroidApp/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AndroidApp/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AndroidApp/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AndroidApp/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AndroidApp/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AndroidApp/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +60,8 @@
       <workItem from="1602439977102" duration="296000" />
       <workItem from="1603060160841" duration="382000" />
       <workItem from="1603097973798" duration="55000" />
+      <workItem from="1603099822830" duration="1812000" />
+      <workItem from="1603125277387" duration="12000" />
     </task>
     <task id="LOCAL-00001" summary="First Commit">
       <created>1603060192779</created>
