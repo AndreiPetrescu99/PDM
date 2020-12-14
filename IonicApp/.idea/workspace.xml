@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -20,16 +23,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9fa0ce92-1941-4e0f-b636-576aceab8645" name="Default Changelist" comment="First Commit">
-      <change afterPath="$PROJECT_DIR$/../AndroidApp/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AndroidApp/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AndroidApp/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AndroidApp/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AndroidApp/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AndroidApp/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -45,9 +51,18 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Cursuri/Ionic" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/myApp/src/network" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="ts.external.directory.path" value="D:\PDM\IonicApp\myApp\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\PDM\IonicApp\myApp\src\network" />
+      <recent name="D:\PDM\IonicApp\myApp\src\auth" />
+      <recent name="D:\PDM\IonicApp\myApp\src\core" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -62,6 +77,20 @@
       <workItem from="1603097973798" duration="55000" />
       <workItem from="1603099822830" duration="1812000" />
       <workItem from="1603125277387" duration="12000" />
+      <workItem from="1604093592701" duration="15777000" />
+      <workItem from="1604248745931" duration="14984000" />
+      <workItem from="1604312045096" duration="633000" />
+      <workItem from="1604594198323" duration="29000" />
+      <workItem from="1605212310211" duration="3491000" />
+      <workItem from="1605353468850" duration="12251000" />
+      <workItem from="1605521874626" duration="4029000" />
+      <workItem from="1605562559659" duration="719000" />
+      <workItem from="1606594863252" duration="7361000" />
+      <workItem from="1606604196874" duration="4000" />
+      <workItem from="1607204374560" duration="9832000" />
+      <workItem from="1607247107789" duration="49000" />
+      <workItem from="1607294070054" duration="5000" />
+      <workItem from="1607938473998" duration="883000" />
     </task>
     <task id="LOCAL-00001" summary="First Commit">
       <created>1603060192779</created>
@@ -89,13 +118,25 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+      <path value="$PROJECT_DIR$/myApp" />
+    </ignored-roots>
     <MESSAGE value="First Commit" />
     <option name="LAST_COMMIT_MESSAGE" value="First Commit" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1602440271813">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1605386189948">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1602440271813" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1605386189948" />
+    <state x="277" y="57" key="SettingsEditor" timestamp="1604094224042">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1604094224042" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1607206597203">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1607206597203" />
   </component>
 </project>

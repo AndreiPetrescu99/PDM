@@ -1,3 +1,15 @@
 <resources>
-    <string name="app_name">Android App</string>
+    <string name="app_name">CFR Student</string>
+    <string name="hello_first_fragment">Hello</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="action_settings">Action Settings</string>
+    <string name="login">Login</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="first_fragment_label">First</string>
+    <string name="second_fragment_label">Second</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must not be empty</string>
 </resources>

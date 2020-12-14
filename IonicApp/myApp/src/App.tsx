@@ -2,7 +2,7 @@ import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import Home from './pages/Home';
+
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -22,15 +22,29 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+// @ts-ignore
+import Home from "./todo/Home";
+import {TrainProvider} from "./todo/TrainProvider";
+import BuyTicket from "./todo/BuyTicket";
+import {AuthProvider, Login, PrivateRoute} from "./auth";
 
 const App: React.FC = () => (
   <IonApp>
-    <IonReactRouter>
-      <IonRouterOutlet>
-        <Route path="/home" component={Home} exact={true} />
-        <Route exact path="/" render={() => <Redirect to="/home" />} />
-      </IonRouterOutlet>
-    </IonReactRouter>
+
+        <IonReactRouter>
+          <IonRouterOutlet>
+            <AuthProvider>
+              <Route path="/login" component={Login} exact={true}/>
+              <TrainProvider>
+                <PrivateRoute path="/home" component={Home} exact={true} />
+                <PrivateRoute path="/train" component={BuyTicket} exact={true}/>
+                <PrivateRoute path="/train/:id" component={BuyTicket} exact={true}/>
+              </TrainProvider>
+              <Route exact path="/" render={() => <Redirect to="/home"/>}/>
+            </AuthProvider>
+          </IonRouterOutlet>
+        </IonReactRouter>
+
   </IonApp>
 );
 
