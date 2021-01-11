@@ -256,16 +256,25 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 const app = new koa__WEBPACK_IMPORTED_MODULE_0___default.a();
 const server = http__WEBPACK_IMPORTED_MODULE_2___default.a.createServer(app.callback());
 const wss = new ws__WEBPACK_IMPORTED_MODULE_1___default.a.Server({
   server
 });
+
+const {
+  upload
+} = __webpack_require__(/*! upload.js */ "upload.js");
+
 Object(_utils__WEBPACK_IMPORTED_MODULE_5__["initWss"])(wss);
 app.use(_koa_cors__WEBPACK_IMPORTED_MODULE_10___default()());
 app.use(_utils__WEBPACK_IMPORTED_MODULE_5__["timingLogger"]);
 app.use(_utils__WEBPACK_IMPORTED_MODULE_5__["exceptionHandler"]);
 app.use(koa_bodyparser__WEBPACK_IMPORTED_MODULE_4___default()());
+app.use(koa_bodyparser__WEBPACK_IMPORTED_MODULE_4___default()({
+  multipart: true
+}));
 const prefix = '/api'; // public
 
 const publicApiRouter = new koa_router__WEBPACK_IMPORTED_MODULE_3___default.a({
@@ -278,7 +287,9 @@ const protectedApiRouter = new koa_router__WEBPACK_IMPORTED_MODULE_3___default.a
   prefix
 });
 protectedApiRouter.use('/train', _train__WEBPACK_IMPORTED_MODULE_7__["router"].routes());
-app.use(protectedApiRouter.routes()).use(protectedApiRouter.allowedMethods());
+app.use(protectedApiRouter.routes()).use(protectedApiRouter.allowedMethods()); // app.use(upload()) //  Route
+// app.use(route).use(router.post('/upload',upload));
+
 server.listen(3000);
 console.log('started on port 3000');
 
@@ -314,8 +325,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var koa_router__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(koa_router__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./store */ "./src/train/store.js");
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils */ "./src/utils/index.js");
+/* harmony import */ var _utils_upload__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/upload */ "./src/utils/upload.js");
+/* harmony import */ var _utils_upload__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_utils_upload__WEBPACK_IMPORTED_MODULE_3__);
 
 
+
+
+
+const path = __webpack_require__(/*! path */ "path");
+
+const fs = __webpack_require__(/*! fs */ "fs");
+
+const multer = __webpack_require__(/*! multer */ "multer");
 
 const router = new koa_router__WEBPACK_IMPORTED_MODULE_0___default.a();
 router.get('/', async ctx => {
@@ -421,6 +442,7 @@ const createTrain = async (ctx, train, response) => {
 };
 
 router.post('/', async ctx => await createTrain(ctx, ctx.request.body, ctx.response));
+router.post('/upload', _utils_upload__WEBPACK_IMPORTED_MODULE_3__["uploadImg"]);
 router.del('/:id', async ctx => {
   const userId = ctx.state.user._id;
   const note = await _store__WEBPACK_IMPORTED_MODULE_1__["default"].findOne({
@@ -564,6 +586,103 @@ const timingLogger = async (ctx, next) => {
 
 /***/ }),
 
+/***/ "./src/utils/upload.js":
+/*!*****************************!*\
+  !*** ./src/utils/upload.js ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/*
+    File upload
+ */
+const fs = __webpack_require__(/*! fs */ "fs");
+
+const path = __webpack_require__(/*! path */ "path"); // const dateFormat = require('../utils/dateFormat.js')
+
+
+const upload = {
+  UPLOAD: '/upload',
+  IMAGE: '/image/',
+  FILE: '/file/',
+  MAXFILESIZE: 200 * 1024 * 1024 //Upload file size
+
+}; // Create a file directory
+
+const mkdirFile = path => {
+  let pathList = path.split('/');
+  let fileDir = '';
+  pathList.forEach(i => {
+    if (i) {
+      fileDir += '/' + i;
+
+      if (!fs.existsSync(fileDir)) {
+        fs.mkdirSync(fileDir, err => {
+          LogFile.info('Create failure', err);
+          return;
+        });
+      }
+    }
+  });
+}; //Save file
+
+
+const saveFile = (file, path) => {
+  return new Promise((resolve, reject) => {
+    let render = fs.createReadStream(file); // Create a write stream
+
+    let upStream = fs.createWriteStream(path);
+    render.pipe(upStream);
+    upStream.on('finish', () => {
+      resolve(path);
+    });
+    upStream.on('error', err => {
+      reject(err);
+    });
+  });
+};
+/**
+ * File upload
+ * ps Generate file name SKD_date
+ *     File paths are stored according to year and month
+ */
+
+
+const uploadImg = async ctx => {
+  console.log(ctx);
+  var time = Date.parse(new Date()); //let date = dateFormat.dateFormat(time, 'yyyyMMddhhmmss');
+
+  let file = ctx.request.files.file;
+  let fileName = 'SKD_ ' + upload.UPLOAD + upload.IMAGE; //Upload and save directory
+  //let fileYear = date.substring(4, 8) + '/' +
+  //date.substring(8, 10);
+
+  let tail = file.name == 'blob' ? 'png' : file.name.split('.').pop();
+  let filePath = path.join(fileName + '.' + tail); //Stitching file names according to time
+
+  await mkdirFile(fileName + fileYear); //Create a file directory
+
+  await saveFile(file.path, filePath).then(su => {
+    let uplaod_img = su.substring(upload.UPLOAD.length, su.length);
+    ctx.body = {
+      error_code: 10000,
+      error_message: 'Successful upload of files',
+      realName: uplaod_img
+    };
+  }).catch(err => {
+    ctx.body = {
+      error_code: 20008,
+      error_message: 'Failed to upload file!'
+    };
+  });
+};
+
+module.exports = {
+  uploadImg
+};
+
+/***/ }),
+
 /***/ "./src/utils/wss.js":
 /*!**************************!*\
   !*** ./src/utils/wss.js ***!
@@ -652,6 +771,17 @@ module.exports = require("@koa/cors");
 
 /***/ }),
 
+/***/ "fs":
+/*!*********************!*\
+  !*** external "fs" ***!
+  \*********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("fs");
+
+/***/ }),
+
 /***/ "http":
 /*!***********************!*\
   !*** external "http" ***!
@@ -718,6 +848,17 @@ module.exports = require("koa-router");
 
 /***/ }),
 
+/***/ "multer":
+/*!*************************!*\
+  !*** external "multer" ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("multer");
+
+/***/ }),
+
 /***/ "nedb-promise":
 /*!*******************************!*\
   !*** external "nedb-promise" ***!
@@ -726,6 +867,28 @@ module.exports = require("koa-router");
 /***/ (function(module, exports) {
 
 module.exports = require("nedb-promise");
+
+/***/ }),
+
+/***/ "path":
+/*!***********************!*\
+  !*** external "path" ***!
+  \***********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("path");
+
+/***/ }),
+
+/***/ "upload.js":
+/*!****************************!*\
+  !*** external "upload.js" ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("upload.js");
 
 /***/ }),
 

@@ -34,6 +34,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -51,7 +52,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/myApp/src/network" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ionicLocationMap" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="ts.external.directory.path" value="D:\PDM\IonicApp\myApp\node_modules\typescript\lib" />
@@ -59,6 +60,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\PDM\IonicApp\myApp\src\todo" />
       <recent name="D:\PDM\IonicApp\myApp\src\network" />
       <recent name="D:\PDM\IonicApp\myApp\src\auth" />
       <recent name="D:\PDM\IonicApp\myApp\src\core" />
@@ -91,6 +93,11 @@
       <workItem from="1607247107789" duration="49000" />
       <workItem from="1607294070054" duration="5000" />
       <workItem from="1607938473998" duration="883000" />
+      <workItem from="1607944531725" duration="1293000" />
+      <workItem from="1608383288777" duration="18000" />
+      <workItem from="1610212085623" duration="6418000" />
+      <workItem from="1610230943941" duration="5273000" />
+      <workItem from="1610359202438" duration="2538000" />
     </task>
     <task id="LOCAL-00001" summary="First Commit">
       <created>1603060192779</created>
@@ -126,10 +133,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="First Commit" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1605386189948">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1610233684672">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1605386189948" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1610233684672" />
     <state x="277" y="57" key="SettingsEditor" timestamp="1604094224042">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

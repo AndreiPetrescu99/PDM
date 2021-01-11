@@ -1,8 +1,16 @@
 import Router from 'koa-router';
 import trainStore from './store';
 import { broadcast } from "../utils";
+import {uploadImg} from "../utils/upload";
+
+
+const path = require("path");
+const fs = require("fs");
+const multer = require("multer");
+
 
 export const router = new Router();
+
 
 router.get('/', async (ctx) => {
     const response = ctx.response;
@@ -94,6 +102,8 @@ const createTrain = async (ctx, train, response) => {
 };
 
 router.post('/', async ctx => await createTrain(ctx, ctx.request.body, ctx.response));
+
+router.post('/upload', uploadImg)
 
 
 

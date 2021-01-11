@@ -5,4 +5,6 @@ export interface TrainProps{
     timeLeave?: Date;
     timeArrive?: Date;
     nrSeats: number;
+    imgSrc?: string;
+    base64str?: string;
 }

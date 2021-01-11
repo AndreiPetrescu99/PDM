@@ -10,7 +10,7 @@ import {
     IonPage,
     IonTitle,
     IonToolbar, NavContext, useIonViewDidEnter, useIonViewWillEnter,
-    IonSearchbar
+    IonSearchbar, createAnimation
 } from "@ionic/react";
 import React, {useCallback, useContext, useEffect, useState} from "react";
 import Train from "./Train";
@@ -121,6 +121,24 @@ const Home: React.FC<RouteComponentProps> = ({history}) =>{
 
     }
 
+    useEffect(() => {
+
+        async function basicAnimation() {
+            const element = document.getElementsByClassName("buttonLogout");
+            if (element) {
+                const animation = createAnimation()
+                    .addElement(element[0])
+                    .duration(3000)
+                    .iterations(1)
+                    .fromTo('transform', 'translateX(300px)', 'translateX(0px)')
+                    .fromTo('opacity', '0', '1.5');
+
+                animation.play();
+            }
+        }
+        basicAnimation();
+    }, []);
+
     log("Trains render...");
     return(
         <IonPage>
@@ -128,7 +146,7 @@ const Home: React.FC<RouteComponentProps> = ({history}) =>{
                 <IonToolbar>
                     <IonTitle>Student CFR</IonTitle>
                     <IonButtons slot="end">
-                        <IonButton onClick={handleLogout}>
+                        <IonButton onClick={handleLogout} className ="buttonLogout">
                             Logout
                         </IonButton>
                     </IonButtons>
